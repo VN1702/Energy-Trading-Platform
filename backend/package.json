@@ -1,0 +1,27 @@
+{
+  "name": "energy-trading-backend",
+  "version": "1.0.0",
+  "description": "Decentralized Energy Trading Backend API",
+  "main": "src/app.js",
+  "scripts": {
+    "start":   "node src/app.js",
+    "dev":     "nodemon src/app.js",
+    "test":    "jest --forceExit"
+  },
+  "dependencies": {
+    "cors":         "^2.8.5",
+    "dotenv":       "^16.4.5",
+    "ethers":       "^6.13.0",
+    "express":      "^4.19.2",
+    "express-rate-limit": "^7.3.1",
+    "helmet":       "^7.1.0",
+    "morgan":       "^1.10.0",
+    "uuid":         "^9.0.1",
+    "ws":           "^8.17.1"
+  },
+  "devDependencies": {
+    "jest":     "^29.7.0",
+    "nodemon":  "^3.1.4",
+    "supertest":"^7.0.0"
+  }
+}
