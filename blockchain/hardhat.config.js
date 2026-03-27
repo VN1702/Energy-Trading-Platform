@@ -14,6 +14,10 @@ module.exports = {
       url: "http://127.0.0.1:8545",
       chainId: 31337,
     },
+    localhost8546: {
+      url: "http://127.0.0.1:8546",
+      chainId: 31337,
+    },
     hardhat: {
       chainId: 31337,
       accounts: {
