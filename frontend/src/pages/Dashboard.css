@@ -1,0 +1,170 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.page-header p {
+  margin: 0.25rem 0 0;
+  color: var(--text-secondary);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1.25rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.stat-value.green {
+  color: var(--accent-green);
+}
+
+.stat-value.amber {
+  color: var(--accent-amber);
+}
+
+.stat-value.red {
+  color: var(--accent-red);
+}
+
+.section h2 {
+  margin: 0 0 1rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.houses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1rem;
+}
+
+.house-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.house-card:hover {
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow);
+}
+
+.house-card.producer {
+  border-left: 3px solid var(--accent-green);
+}
+
+.house-card.consumer {
+  border-left: 3px solid var(--accent-red);
+}
+
+.house-card.neutral {
+  border-left: 3px solid var(--text-muted);
+}
+
+.house-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.house-id {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.house-badge {
+  font-size: 0.65rem;
+  font-weight: 600;
+  padding: 0.2rem 0.5rem;
+  border-radius: 6px;
+}
+
+.house-badge.surplus {
+  background: rgba(63, 185, 80, 0.2);
+  color: var(--accent-green);
+}
+
+.house-badge.deficit {
+  background: rgba(248, 81, 73, 0.2);
+  color: var(--accent-red);
+}
+
+.house-name {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.house-stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.house-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.house-stat .label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.house-stat .value {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.house-stat .value.mono {
+  font-family: var(--font-mono);
+}
+
+.house-stat .value.green {
+  color: var(--accent-green);
+}
+
+.house-stat .value.red {
+  color: var(--accent-red);
+}
+
+.house-type {
+  display: block;
+  margin-top: 0.75rem;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  text-transform: capitalize;
+}

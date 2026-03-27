@@ -1,0 +1,167 @@
+.analytics {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.analytics-loading,
+.analytics-error {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-secondary);
+}
+
+.analytics-error {
+  color: var(--accent-red);
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.page-header p {
+  margin: 0.25rem 0 0;
+  color: var(--text-secondary);
+}
+
+.analytics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.analytics-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 1.25rem;
+}
+
+.analytics-section.wide {
+  grid-column: 1 / -1;
+}
+
+.analytics-section h2 {
+  margin: 0 0 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.stats-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 0.75rem;
+}
+
+.stat-card {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.stat-card.wide {
+  grid-column: 1 / -1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  font-family: var(--font-mono);
+}
+
+.stat-value.green {
+  color: var(--accent-green);
+}
+
+.stat-value.muted {
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.earners-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.earner-row {
+  display: grid;
+  grid-template-columns: 24px 1fr auto;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.5rem;
+  background: var(--bg-elevated);
+  border-radius: 8px;
+}
+
+.earner-row .rank {
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.earner-row .name {
+  font-weight: 500;
+}
+
+.earner-row .earned {
+  font-family: var(--font-mono);
+  color: var(--accent-green);
+}
+
+.hourly-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 120px;
+}
+
+.hour-bar-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 0;
+}
+
+.hour-bar {
+  width: 100%;
+  min-height: 4px;
+  background: var(--accent-cyan);
+  border-radius: 4px 4px 0 0;
+  transition: height 0.3s;
+}
+
+.hour-label {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+.recent-trades {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.recent-trade {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 1rem;
+  padding: 0.5rem;
+  font-size: 0.85rem;
+}
+
+.recent-trade .mono {
+  font-family: var(--font-mono);
+}
