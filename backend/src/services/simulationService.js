@@ -89,6 +89,14 @@ class SimulationService {
         ? Math.sin(((hour - 6) / 12) * Math.PI)
         : 0;
 
+    // Not all generation is solar. Keep some production at night so the market has supply:
+    // - constant_producer (e.g., micro-hydro) produces steadily
+    // - other homes still have a small baseline (wind/battery/etc.)
+    const productionMultiplier =
+      profile.type === "constant_producer"
+        ? 1.0
+        : (solarMultiplier === 0 ? 0.08 : solarMultiplier);
+
     // Consumption peaks: morning (7-9) and evening (18-22)
     const consumptionMultiplier =
       (hour >= 7  && hour <= 9)  ? 1.4 :
@@ -99,7 +107,7 @@ class SimulationService {
     const noise = () => (Math.random() - 0.5) * 0.2;
 
     const energyProduced = Math.max(0,
-      baseP * solarMultiplier * (1 + noise()) * profile.solarMultiplier
+      baseP * productionMultiplier * (1 + noise()) * profile.solarMultiplier
     );
     const energyConsumed = Math.max(0.1,
       baseC * consumptionMultiplier * (1 + noise()) * profile.loadMultiplier
