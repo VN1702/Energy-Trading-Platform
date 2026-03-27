@@ -1,7 +1,14 @@
-const BASE = "/api";
+const API_BASE = (import.meta.env.VITE_API_BASE || "").replace(/\/+$/, "");
+
+function buildUrl(path) {
+  // In dev, Vite proxy handles relative "/api" paths.
+  // In prod, set VITE_API_BASE="https://your-backend.onrender.com"
+  if (!API_BASE) return `/api${path}`;
+  return `${API_BASE}/api${path}`;
+}
 
 async function request(path, options = {}) {
-  const url = `${BASE}${path}`;
+  const url = buildUrl(path);
   const res = await fetch(url, {
     ...options,
     headers: {
@@ -42,5 +49,5 @@ export const api = {
     get: () => request("/analytics"),
     getPerformance: () => request("/analytics/performance"),
   },
-  health: () => fetch("/health").then((r) => r.json()),
+  health: () => fetch(API_BASE ? `${API_BASE}/health` : "/health").then((r) => r.json()),
 };

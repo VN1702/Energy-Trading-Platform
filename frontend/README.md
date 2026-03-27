@@ -17,6 +17,15 @@ npm run dev
 
 Runs at http://localhost:5173. Requires the backend to be running on port 5000.
 
+## Production (Vercel) env vars
+
+Set these in Vercel → Project → Settings → Environment Variables:
+
+- `VITE_API_BASE`: `https://<your-render-service>.onrender.com`
+- `VITE_WS_BASE` (optional): `wss://<your-render-service>.onrender.com`
+
+If `VITE_WS_BASE` is not set, the app derives the WebSocket URL from `VITE_API_BASE`.
+
 ## Build
 
 ```bash

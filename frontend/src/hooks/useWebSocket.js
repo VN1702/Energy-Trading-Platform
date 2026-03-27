@@ -1,6 +1,19 @@
 import { useEffect, useRef, useState, useCallback } from "react";
 
+const API_BASE = (import.meta.env.VITE_API_BASE || "").replace(/\/+$/, "");
+const WS_BASE  = (import.meta.env.VITE_WS_BASE || "").replace(/\/+$/, "");
+
 const getWsUrl = () => {
+  // Prefer explicit WS base in prod (Render): wss://your-backend.onrender.com
+  if (WS_BASE) return `${WS_BASE}/ws`;
+
+  // If API base is set, derive ws/wss from it.
+  if (API_BASE) {
+    const wsBase = API_BASE.replace(/^http:/, "ws:").replace(/^https:/, "wss:");
+    return `${wsBase}/ws`;
+  }
+
+  // Dev fallback (Vite proxy): ws(s)://localhost:5173/ws
   const { protocol, host } = window.location;
   const wsProtocol = protocol === "https:" ? "wss:" : "ws:";
   return `${wsProtocol}//${host}/ws`;
